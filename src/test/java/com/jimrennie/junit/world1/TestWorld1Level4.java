@@ -22,9 +22,11 @@ class TestWorld1Level4 {
 	void testPerson_PersonIsSuperMan_ExpectNameToMatch() {
 		Person person = new Person("Clark", "Kent");
 
-		assertEquals("Super", person.firstName());
-		assertEquals("Man", person.lastName());
-		assertEquals("Super Man", person.displayName());
+		assertAll(
+				() -> assertEquals("Super", person.firstName(), "firstName"),
+				() -> assertEquals("Man", person.lastName(), "lastName"),
+				() -> assertEquals("Super Man", person.displayName(), "displayName")
+		);
 	}
 
 }
