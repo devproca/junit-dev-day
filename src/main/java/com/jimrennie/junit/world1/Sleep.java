@@ -1,4 +1,4 @@
-package com.jimrennie.junit.worldone;
+package com.jimrennie.junit.world1;
 
 import lombok.SneakyThrows;
 

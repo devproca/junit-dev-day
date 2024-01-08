@@ -1,19 +1,17 @@
-package com.jimrennie.junit.worldone;
+package com.jimrennie.junit.world1;
 
 import org.junit.jupiter.api.*;
 
 /**
  * 1.1 Lifecycle hooks
+ *
+ * Instructions:
+ * These are all the lifecycle hooks in Junit5. Run the test class and observe the logs to understand how these
+ * lifecycle hooks work.
  */
-class TestWorldOneLevel1 {
+class TestWorld1Level1 {
 
-	/**
-	 * Instructions:
-	 * These are all the lifecycle hooks in Junit5. Run all the tests and observe the logs to understand how these
-	 * lifecycle hooks work.
-	 */
-
-	TestWorldOneLevel1() {
+	TestWorld1Level1() {
 		System.out.println("constructor");
 	}
 

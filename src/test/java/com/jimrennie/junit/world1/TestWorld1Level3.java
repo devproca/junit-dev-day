@@ -1,15 +1,12 @@
-package com.jimrennie.junit.worldone;
+package com.jimrennie.junit.world1;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 1.3 Assertions
@@ -32,77 +29,68 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  *
  * Instructions:
- * Go through each test and add the appropriate assertion(s) based on the test name.
+ * Go through each test and add the appropriate assertion based on the test name.
  *
  * The tests are written in the format:
  * testMethodName_StateUnderTest_ExpectedBehavior
  */
-class TestWorldOneLevel3 {
+class TestWorld1Level3 {
 
-	/**
-	 * Example
-	 */
 	@Test
 	void testStringUtilsIsBlank_StringIsNotBlank_ExpectFalse() {
 		boolean result = StringUtils.isBlank("asdf");
 
-		assertFalse(result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsIsBlank_StringIsBlank_ExpectTrue() {
 		boolean result = StringUtils.isBlank("       ");
 
-		// TODO
-		assertTrue(result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsTrimToNull_StringIsBlank_ExpectNull() {
 		String result = StringUtils.trimToNull("   ");
 
-		// TODO
-		assertNull(result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsTrimToEmpty_StringIsBlank_ExpectNotNull() {
 		String result = StringUtils.trimToEmpty("   ");
 
-		// TODO
-		assertNotNull(result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsTrimToEmpty_StringIsBlank_ExpectEmptyString() {
 		String result = StringUtils.trimToEmpty("   ");
 
-		// TODO
-		assertEquals("", result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsTrimToNull_StringHasSpacesOnOutside_ExpectWhitespaceRemovedFromOutside() {
 		String result = StringUtils.trimToNull("  hello world      ");
 
-		// TODO
-		assertEquals("hello world", result);
+		// TODO add assertion
 	}
 
 	@Test
 	void testStringUtilsTruncate_InvalidMaxWidth_ExpectIllegalArgumentException() {
-		// TODO remove assert throws for question
-		assertThrows(IllegalArgumentException.class, () -> StringUtils.truncate("asdf", -1));
+		StringUtils.truncate("asdf", -1);
 
-		// TODO
+		// TODO add assertion
 	}
 
 	@Test
 	void testSleepForFiveSeconds_RunMethod_ExpectNoLongerThanSixSeconds() {
 		// TODO remove assertion
-		assertTimeoutPreemptively(Duration.ofSeconds(6000), Sleep::forFiveSeconds);
+		Sleep.forFiveSeconds();
 
-		// TODO
+		// TODO add assertion
 	}
 
 	@Test
@@ -110,7 +98,7 @@ class TestWorldOneLevel3 {
 		UUID uuid1 = UUID.randomUUID();
 		UUID uuid2 = UUID.randomUUID();
 
-		assertNotEquals(uuid1, uuid2);
+		// TODO add assertion
 	}
 
 	@Test
@@ -118,8 +106,8 @@ class TestWorldOneLevel3 {
 		String[] result = StringUtils.split("hello world");
 
 		String[] expectedResult = new String[]{"hello", "world"};
-		// TODO
-		assertArrayEquals(expectedResult, result);
+
+		// TODO add assertion
 	}
 
 	@Test
@@ -130,8 +118,7 @@ class TestWorldOneLevel3 {
 
 		List<Integer> expectedResult = List.of(1, 3, 5);
 
-		//TODO
-		assertIterableEquals(expectedResult, numbers);
+		// TODO add assertion
 	}
 
 }

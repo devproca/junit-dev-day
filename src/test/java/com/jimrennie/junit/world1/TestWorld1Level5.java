@@ -1,8 +1,7 @@
-package com.jimrennie.junit.worldone;
+package com.jimrennie.junit.world1;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,8 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 1.5 Test templates
+ *
+ * Test templates are a powerful generalization of JUnit 5’s parameterized and repeated tests. See tests below for
+ * exercise instructions.
  */
-class TestWorldOneLevel5 {
+class TestWorld1Level5 {
 
 	private final Random random = new Random();
 
@@ -24,9 +26,7 @@ class TestWorldOneLevel5 {
 	 * This test will only fail some of the time. Run the test 100 times using @RepeatedTest to prove that
 	 * random.NextInt is not working as the developer of this test expects.
 	 */
-//	@Test
-	// TODO Answer
-	@RepeatedTest(100)
+	@Test
 	void testRandomNextInt_RandomNumberMaxOf4_ExpectRandomNumberToBeBetween0And6Exclusive() {
 		int number = random.nextInt(0, 6);
 
@@ -42,7 +42,7 @@ class TestWorldOneLevel5 {
 	 * just like a regular @Test method but use the @ParameterizedTest annotation instead. In addition, you must declare
 	 * at least one data source that will provide the parameters for each test invocation.
 	 *
-	 * Additional information:
+	 * Additional reading:
 	 * <a href="https://www.baeldung.com/parameterized-tests-junit-5">Baeldung parameterized tests</a>
 	 *
 	 * Instructions:

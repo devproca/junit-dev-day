@@ -1,4 +1,4 @@
-package com.jimrennie.junit.worldone.extension;
+package com.jimrennie.junit.world1.extension;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
