@@ -3,10 +3,13 @@ package com.jimrennie.junit.world1;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 1.3 Assertions
@@ -40,57 +43,52 @@ class TestWorld1Level3 {
 	void testStringUtilsIsBlank_StringIsNotBlank_ExpectFalse() {
 		boolean result = StringUtils.isBlank("asdf");
 
-		// TODO add assertion
+		assertFalse(result);
 	}
 
 	@Test
 	void testStringUtilsIsBlank_StringIsBlank_ExpectTrue() {
 		boolean result = StringUtils.isBlank("       ");
 
-		// TODO add assertion
+		assertTrue(result);
 	}
 
 	@Test
 	void testStringUtilsTrimToNull_StringIsBlank_ExpectNull() {
 		String result = StringUtils.trimToNull("   ");
 
-		// TODO add assertion
+		assertNull(result);
 	}
 
 	@Test
 	void testStringUtilsTrimToEmpty_StringIsBlank_ExpectNotNull() {
 		String result = StringUtils.trimToEmpty("   ");
 
-		// TODO add assertion
+		assertNotNull(result);
 	}
 
 	@Test
 	void testStringUtilsTrimToEmpty_StringIsBlank_ExpectEmptyString() {
 		String result = StringUtils.trimToEmpty("   ");
 
-		// TODO add assertion
+		assertEquals("", result);
 	}
 
 	@Test
 	void testStringUtilsTrimToNull_StringHasSpacesOnOutside_ExpectWhitespaceRemovedFromOutside() {
 		String result = StringUtils.trimToNull("  hello world      ");
 
-		// TODO add assertion
+		assertEquals("hello world", result);
 	}
 
 	@Test
 	void testStringUtilsTruncate_InvalidMaxWidth_ExpectIllegalArgumentException() {
-		StringUtils.truncate("asdf", -1);
-
-		// TODO add assertion
+		assertThrows(IllegalArgumentException.class, () -> StringUtils.truncate("asdf", -1));
 	}
 
 	@Test
 	void testSleepForFiveSeconds_RunMethod_ExpectNoLongerThanSixSeconds() {
-		// TODO remove assertion
-		Sleep.forFiveSeconds();
-
-		// TODO add assertion
+		assertTimeoutPreemptively(Duration.ofSeconds(6000), Sleep::forFiveSeconds);
 	}
 
 	@Test
@@ -98,7 +96,7 @@ class TestWorld1Level3 {
 		UUID uuid1 = UUID.randomUUID();
 		UUID uuid2 = UUID.randomUUID();
 
-		// TODO add assertion
+		assertNotEquals(uuid1, uuid2);
 	}
 
 	@Test
@@ -106,8 +104,7 @@ class TestWorld1Level3 {
 		String[] result = StringUtils.split("hello world");
 
 		String[] expectedResult = new String[]{"hello", "world"};
-
-		// TODO add assertion
+		assertArrayEquals(expectedResult, result);
 	}
 
 	@Test
@@ -117,8 +114,7 @@ class TestWorld1Level3 {
 		Collections.sort(numbers);
 
 		List<Integer> expectedResult = List.of(1, 3, 5);
-
-		// TODO add assertion
+		assertIterableEquals(expectedResult, numbers);
 	}
 
 }
