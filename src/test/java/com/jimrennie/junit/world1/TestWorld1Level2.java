@@ -1,5 +1,7 @@
 package com.jimrennie.junit.world1;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,6 +22,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestWorld1Level2 {
 
 	private final Counter counter = Counter.getInstance();
+
+	@BeforeEach
+	void setUp() {
+		counter.reset();
+	}
+
+	@AfterAll
+	static void cleanUp() {
+		// Gotcha: AfterAll method needs to be static
+		Counter.getInstance().reset();
+	}
 
 	@Test
 	void testCounterNext_CallNext_ExpectCountToBeOne() {
