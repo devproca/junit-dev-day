@@ -1,6 +1,9 @@
 package com.jimrennie.junit.world1;
 
+import com.jimrennie.junit.world1.extension.JimRulesExtension;
+import com.jimrennie.junit.world1.extension.TimerExtension;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * See tests below for further instructions. As you do these exercises take a moment to look at the extension code you
  * are extending your test with.
  */
+@ExtendWith(JimRulesExtension.class)
+@ExtendWith(TimerExtension.class)
 class TestWorld1Level6 {
 
 	/**
