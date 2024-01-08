@@ -2,7 +2,12 @@ package com.jimrennie.junit.world1;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 import java.util.Random;
@@ -26,7 +31,7 @@ class TestWorld1Level5 {
 	 * This test will only fail some of the time. Run the test 100 times using @RepeatedTest to prove that
 	 * random.NextInt is not working as the developer of this test expects.
 	 */
-	@Test
+	@RepeatedTest(100)
 	void testRandomNextInt_RandomNumberMaxOf4_ExpectRandomNumberToBeBetween0And6Exclusive() {
 		int number = random.nextInt(0, 6);
 
@@ -49,20 +54,19 @@ class TestWorld1Level5 {
 	 * The developer below doesn't know how to write parameterized tests. Refactor the below test into either one or two
 	 * parameterized tests.
 	 */
-	@Test
-	void testStringUtilsIsBlank() {
-		List<Pair<String, Boolean>> inputAndExpectedResults = List.of(
-				Pair.of("", true),
-				Pair.of(" ", true),
-				Pair.of(null, true),
-				Pair.of("hi", false),
-				Pair.of(" hi ", false)
-		);
 
-		for (var inputAndExpectedResult : inputAndExpectedResults) {
-			boolean expectedResult = inputAndExpectedResult.getRight();
-			boolean actualResult = StringUtils.isBlank(inputAndExpectedResult.getLeft());
-			assertEquals(expectedResult, actualResult);
-		}
+	// There are a lot of different ways to answer this question :)
+
+	@ValueSource(strings = {" "})
+	@NullAndEmptySource
+	@ParameterizedTest
+	void testStringUtilsIsBlank_BlankStrings_ExpectTrue(String input) {
+		assertTrue(StringUtils.isBlank(input));
+	}
+
+	@ValueSource(strings = {"hi", " hi "})
+	@ParameterizedTest
+	void testStringUtilsIsBlank_NotBlankStrings_ExpectFalse(String input) {
+		assertFalse(StringUtils.isBlank(input));
 	}
 }
