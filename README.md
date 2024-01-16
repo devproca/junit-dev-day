@@ -17,6 +17,7 @@ Level 3 - Assertions
 Level 4 - assertAll
 Level 5 - Test templates
 Level 6 - Using extensions
+Level 7 - Nested test classes
 Boss battle - Day of the week message tests
 
 ## World 2 - Mockito

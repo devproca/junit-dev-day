@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 
 /**
  * 1.boss
+ *
  * {@link DayOfWeekMessageProvider#getMessage(DayOfWeek)} needs some tests!
  *
  * On Monday it should return: "Looks like somebody has a case of the Monday's"
