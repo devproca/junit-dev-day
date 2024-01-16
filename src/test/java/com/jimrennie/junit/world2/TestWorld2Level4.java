@@ -40,7 +40,7 @@ public class TestWorld2Level4 {
 	 * @InjectMocks automatically creates a new instance and injects mock objects into the fields of a tested object.
 	 * Works great for Spring @Autowired variables.
 	 *
-	 * Behind the scenes it is running human = new Human(language, iPhone); during the beforeEach phase.
+	 * Behind the scenes it is running human = new Human(language, iPhone); during the beforeEach lifecycle hook.
 	 */
 	@InjectMocks
 	private Human human;
