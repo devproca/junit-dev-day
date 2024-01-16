@@ -54,7 +54,7 @@ public class TestWorld2Level3 {
 	 * Using multiple {@link ArgumentMatchers}, make the assertions in the test pass.
 	 */
 	@Test
-	void everyCatNameIsAGoodCatNameExceptNull(String name) {
+	void everyCatNameIsAGoodCatNameExceptNull() {
 		// TODO
 
 		assertAll(
