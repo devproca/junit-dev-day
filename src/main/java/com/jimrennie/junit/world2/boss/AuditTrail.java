@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AuditTrail {
 
-	void audit(AuditType auditType) {
+	public void audit(AuditType auditType) {
 		log.info("Audit - {}", auditType);
 	}
 
