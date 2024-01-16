@@ -39,7 +39,7 @@ class TestWorld2Level1 {
 		// be written like mock(Language.class) instead of Mockito.mock(Language.class).
 		Language language = Mockito.mock(Language.class);
 
-		// TODO Add mock behaviour here
+		when(language.hello()).thenReturn("bonjour");
 
 		Human human = new Human(language);
 
@@ -64,7 +64,8 @@ class TestWorld2Level1 {
 
 		new Human(language).sayHelloWorld();
 
-		// TODO Add verifies here
+		verify(language).hello();
+		verify(language).world();
 	}
 
 	/**
@@ -83,10 +84,9 @@ class TestWorld2Level1 {
 	 */
 	@Test
 	void testSpy() {
-		// Add Spy to EnglishLanguage
-		EnglishLanguage englishLanguage = new EnglishLanguage();
+		EnglishLanguage englishLanguage = spy(new EnglishLanguage());
 
-		// Replace behaviour here
+		when(englishLanguage.hello()).thenReturn("sup");
 
 		Human human = new Human(englishLanguage);
 
