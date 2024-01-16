@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 /**
@@ -41,7 +42,7 @@ public class TestWorld2Level3 {
 	@ValueSource(strings = {"Jim", "Jeff", "Gabriel", "Haden", "Jessie", "Carole", "David"})
 	@ParameterizedTest
 	void everyCatNameIsAGoodCatName(String name) {
-		when(goodCatNameDetector.isGoodName("Dalin")).thenReturn(true);
+		when(goodCatNameDetector.isGoodName(any())).thenReturn(true);
 
 		assertTrue(goodCatNameDetector.isGoodName(name));
 	}
@@ -55,7 +56,8 @@ public class TestWorld2Level3 {
 	 */
 	@Test
 	void everyCatNameIsAGoodCatNameExceptNull() {
-		// TODO
+		when(goodCatNameDetector.isGoodName(isNotNull())).thenReturn(true);
+		when(goodCatNameDetector.isGoodName(isNull())).thenReturn(false);
 
 		assertAll(
 				() -> assertTrue(goodCatNameDetector.isGoodName("Bob"), "Bob"),
