@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -60,7 +61,11 @@ public class TestWorld2Level4 {
 
 		human.textFriendHelloWorld();
 
-		verify(iPhone).text(null);
+		// Using the @Captor annotation would also work
+		ArgumentCaptor<String> textMessageCaptor = ArgumentCaptor.forClass(String.class);
+		verify(iPhone).text(textMessageCaptor.capture());
+
+		assertEquals("hello world", textMessageCaptor.getValue());
 	}
 
 }
