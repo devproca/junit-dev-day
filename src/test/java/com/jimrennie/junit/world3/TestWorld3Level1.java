@@ -4,12 +4,15 @@ import com.jimrennie.junit.world3.core.Student;
 import com.jimrennie.junit.world3.core.StudentNotificationService;
 import com.jimrennie.junit.world3.integration.EmailServer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.mockito.Mockito.verify;
 
 /**
  *
@@ -43,11 +46,22 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * correct email and message to the EmailServer. You aren't allowed to use @SpringBootTest for this one.
  *
  */
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = StudentNotificationService.class)
 class TestWorld3Level1 {
+
+	@MockBean
+	private EmailServer emailServer;
+	@Autowired
+	private StudentNotificationService studentNotificationService;
 
 	@Test
 	void testEmailSentToServer() {
-		// TODO
+		Student student = new Student().setEmail("nacho@libre.mx");
+
+		studentNotificationService.sendMessage(student, "hello world");
+
+		verify(emailServer).send("nacho@libre.mx", "hello world");
 	}
 
 }
