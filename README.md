@@ -1,34 +1,63 @@
-* JUnit Dev Day
+# JUnit Dev Day
 
-Setup
+## Setup
+Clone this repo and open it up in your favorite IDE.
 
-Intro
-Why do we write tests - so we can refactor
+The exercises can be found in `src/test/java/com/jimrennie/junit`
 
-## World 1 - JUnit tools
+The answers are in branches off of the master branch in the format `answers/worldx/levely` and for boss levels it `answers/worldx/levelboss`.
 
-Basics of JUnit
+The easiest way to view the answers is to run the git command pointing at the appropriate answer branch:
+```
+git diff master...answers/world1/level1 --no-prefix -U1000
+```
+
+## Exercises
+
+### World 1 - JUnit basics
 
 Difficulty: Easy
 
-Level 1 - Lifecycle hooks
-Level 2 - Lifecycle hooks in action
-Level 3 - Assertions
-Level 4 - assertAll
-Level 5 - Test templates
-Level 6 - Using extensions
-Level 7 - Nested test classes
-Boss battle - Day of the week message tests
+* Level 1 - Lifecycle hooks
+* Level 2 - Lifecycle hooks in action
+* Level 3 - Assertions
+* Level 4 - assertAll
+* Level 5 - Test templates
+* Level 6 - Using extensions
+* Level 7 - Nested test classes
+* Level Boss - Day of the week message tests
 
-## World 2 - Mockito
+### World 2 - Mockito
 
-Level 1 - Mocks
+Difficulty: Easy
 
-Basics of Mockito
+* Level 1 - Overview
+* Level 2 - Mockito setup
+* Level 3 - Argument matchers
+* Level 4 - Argument captors
+* Level Boss - Shopping cart tests
 
-Exercise code is located here: src/main/test/java/com/jimrennie/junit
-Exercise 1 - JUnit 5
-Exercise 2 - Junit 5 Advanced features (take from OG junit5 dev day) plus spring extensions
+### World 3 - Spring TextContext Framework
 
-Extensions
-DataFactory injector extension
+Difficulty: Medium
+
+* Level 1 - Spring test setup
+* Level 2 - Controller tests
+* Level Boss - Email verification flow tests
+
+### World 4 - AssertJ
+
+Difficulty: Medium
+
+* Level 1 - Assertions
+* Level 2 - Recursive assertions
+* Level Boss - Multiple assertions in one
+
+### World 5 - Extensions
+
+Difficulty Hard
+
+* Level 1 - Basic extension
+* Level 2 - Hakuna matata extension
+* Level Boss - Unique Id extension
+
