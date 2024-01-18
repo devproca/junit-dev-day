@@ -88,7 +88,7 @@ class TestWorld1Level3 {
 
 	@Test
 	void testSleepForFiveSeconds_RunMethod_ExpectNoLongerThanSixSeconds() {
-		assertTimeoutPreemptively(Duration.ofSeconds(6000), Sleep::forFiveSeconds);
+		assertTimeoutPreemptively(Duration.ofSeconds(6), Sleep::forFiveSeconds);
 	}
 
 	@Test
