@@ -30,7 +30,7 @@ class TestWorld3Level2 {
 
 	/**
 	 * Test that GET /api/students?year=2012 returns one student with the name of Mark
-	 * <p>
+	 * 
 	 * Before you declare this test working try running all the tests in this test class. You can use tear-down.sql
 	 * to clean up test data between classes if needed.
 	 */
