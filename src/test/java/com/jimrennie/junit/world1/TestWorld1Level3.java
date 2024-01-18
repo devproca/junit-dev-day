@@ -87,7 +87,6 @@ class TestWorld1Level3 {
 
 	@Test
 	void testSleepForFiveSeconds_RunMethod_ExpectNoLongerThanSixSeconds() {
-		// TODO remove assertion
 		Sleep.forFiveSeconds();
 
 		// TODO add assertion

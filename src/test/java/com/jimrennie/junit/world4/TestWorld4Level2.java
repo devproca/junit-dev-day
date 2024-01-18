@@ -13,7 +13,7 @@ import java.util.Set;
  * assertThat(object).usingRecursiveAssertion()
  *
  * Here's how to start a recursive comparison:
- * assertThat(batman).usingRecursiveComparison()
+ * assertThat(object).usingRecursiveComparison()
  *
  * Instructions:
  * Add single recursive assertion based on instructions of each test
@@ -39,7 +39,7 @@ class TestWorld4Level2 {
 	}
 
 	/**
-	 * test that batman and dora the explorer are the equal excluding their name.
+	 * test that batman and dora the explorer are equal excluding their name.
 	 */
 	@Test
 	void testBatmanEqualToDora() {
