@@ -1,7 +1,7 @@
 package com.jimrennie.junit.world3;
 
 import com.jimrennie.junit.world3.controller.StudentController;
-import com.jimrennie.junit.world3.core.Student;
+import com.jimrennie.junit.world3.controller.StudentDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,7 +39,7 @@ class TestWorld3Level2 {
 	 */
 	@Test
 	void testFindAll() {
-		Student[] students = restTemplate.getForObject("/api/students", Student[].class);
+		StudentDto[] students = restTemplate.getForObject("/api/students", StudentDto[].class);
 
 		assertEquals(4, students.length);
 	}
@@ -52,7 +52,7 @@ class TestWorld3Level2 {
 	 */
 	@Test
 	void testFindByGraduationYear() {
-		Student[] students = restTemplate.getForObject("/api/students?year=2012", Student[].class);
+		StudentDto[] students = restTemplate.getForObject("/api/students?year=2012", StudentDto[].class);
 
 		assertEquals(1, students.length);
 		assertEquals("Mark", students[0].getName());
