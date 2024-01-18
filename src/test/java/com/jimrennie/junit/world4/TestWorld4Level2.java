@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * 4.2 Recursive assertions
  *
@@ -35,7 +37,10 @@ class TestWorld4Level2 {
 	void testNoNullFields() {
 		SuperHero superHero = BATMAN;
 
-		// TODO
+		assertThat(superHero)
+				.usingRecursiveAssertion()
+				.ignoringFields("power")
+				.hasNoNullFields();
 	}
 
 	/**
@@ -46,7 +51,9 @@ class TestWorld4Level2 {
 		SuperHero batman = BATMAN;
 		SuperHero dora = DORA_THE_EXPLORER;
 
-		// TODO
+		assertThat(batman).usingRecursiveComparison()
+				.ignoringFields("name")
+				.isEqualTo(dora);
 	}
 
 	private record SuperHero(String name, String power, Set<Weakness> weaknesses) {
