@@ -9,7 +9,7 @@ The answers are in branches off of the master branch in the format `answers/worl
 
 The easiest way to view the answers is to run the git command pointing at the appropriate answer branch:
 ```
-git diff master...answers/world1/level1 -U1000
+git diff master...origin/answers/world1/level1 -U1000
 ```
 
 ## Exercises
