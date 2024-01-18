@@ -18,16 +18,17 @@ class TestWorld5Level2 {
 
 	@Test
 	void test1() {
-		fail();
+		fail("Sad broken test");
 	}
 
 	@Test
 	void test2() {
-		fail();
+		fail("Another sad broken test");
 	}
 
 	@Test
 	void test3() {
+		// Passing test
 	}
 
 }
