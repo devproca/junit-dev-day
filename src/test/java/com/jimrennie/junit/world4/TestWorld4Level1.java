@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * 4.1 AssertJ assertions
  *
@@ -30,7 +32,7 @@ class TestWorld4Level1 {
 	void testYouAreAwesome() {
 		boolean youAreAwesome = true;
 
-		// TODO
+		assertThat(youAreAwesome).isTrue();
 	}
 
 	/**
@@ -40,7 +42,7 @@ class TestWorld4Level1 {
 	void testSquirtleAStartingPokemon() {
 		List<String> startingPokemon = List.of("bulbasaur", "charmander", "squirtle");
 
-		// TODO
+		assertThat(startingPokemon).contains("squirtle");
 	}
 
 	/**
@@ -51,7 +53,7 @@ class TestWorld4Level1 {
 		List<String> listA = List.of("a", "b", "c", "d");
 		List<String> listB = List.of("b", "c", "d", "a");
 
-		// TODO
+		assertThat(listA).containsExactlyInAnyOrderElementsOf(listB);
 	}
 
 	/**
@@ -64,7 +66,7 @@ class TestWorld4Level1 {
 				"soda", 100
 		);
 
-		// TODO
+		assertThat(map).containsEntry("beef", 5);
 	}
 
 }
