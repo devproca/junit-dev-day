@@ -7,7 +7,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.jdbc.Sql;
 
 /**
- * 1.2 Controller tests
+ * 3.2 Controller tests
  *
  * Let's use the Spring TestContext Framework to its full potential and write some controller integration tests on the
  * {@link StudentController} by using the {@link TestRestTemplate}. This level is a little less guided than previous
