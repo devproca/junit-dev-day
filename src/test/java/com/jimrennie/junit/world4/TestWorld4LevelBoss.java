@@ -2,9 +2,14 @@ package com.jimrennie.junit.world4;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.as;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.MAP;
 
 /**
  * 4.boss
@@ -22,7 +27,14 @@ class TestWorld4LevelBoss {
 			.addProperty("water_content", "75%")
 			.addProperty("colour", "yellow");
 
-
+	@Test
+	void testBanana() {
+		assertThat(FRUIT)
+				.hasFieldOrPropertyWithValue("name", "banana")
+				.hasToString("banana")
+				.extracting(Fruit::getProperties, as(MAP))
+				.containsEntry("water_content", "75%");
+	}
 
 	@Data
 	@Accessors(chain = true)
