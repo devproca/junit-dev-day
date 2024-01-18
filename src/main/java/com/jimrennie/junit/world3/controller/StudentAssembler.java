@@ -25,6 +25,7 @@ public class StudentAssembler {
 
 	public StudentDto disassemble(Student student) {
 		return new StudentDto()
+				.setStudentId(student.getStudentId())
 				.setName(student.getName())
 				.setEmail(student.getEmail())
 				.setEmailVerified(student.getEmailVerified());
