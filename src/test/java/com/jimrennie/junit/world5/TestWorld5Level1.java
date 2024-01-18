@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Write an extension that resolves any integer parameters to your favorite number and test it out on this class
  *
  * Hint: Use the ParameterResolver hook.
+ * Hint: {@link com.jimrennie.junit.world1.extension} contains a few custom extensions that will help if you're stuck
  */
 class TestWorld5Level1 {
 
