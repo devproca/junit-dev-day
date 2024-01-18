@@ -1,10 +1,18 @@
 package com.jimrennie.junit.world3;
 
 import com.jimrennie.junit.world3.controller.StudentController;
+import com.jimrennie.junit.world3.core.Student;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.jdbc.Sql;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD;
 
 /**
  * 1.2 Controller tests
@@ -18,14 +26,22 @@ import org.springframework.test.context.jdbc.Sql;
  * - Add test data using the student-test-data.sql located in src/test/resources using the {@link Sql} annotation.
  * - Follow test instructions
  */
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+@Sql(scripts = "classpath:student-test-data.sql")
+@Sql(scripts = "classpath:tear-down.sql", executionPhase = AFTER_TEST_METHOD)
 class TestWorld3Level2 {
+
+	@Autowired
+	private TestRestTemplate restTemplate;
 
 	/**
 	 * Test that GET /api/students returns 4 students
 	 */
 	@Test
 	void testFindAll() {
-		// TODO
+		Student[] students = restTemplate.getForObject("/api/students", Student[].class);
+
+		assertEquals(4, students.length);
 	}
 
 	/**
@@ -36,7 +52,10 @@ class TestWorld3Level2 {
 	 */
 	@Test
 	void testFindByGraduationYear() {
-		// TODO
+		Student[] students = restTemplate.getForObject("/api/students?year=2012", Student[].class);
+
+		assertEquals(1, students.length);
+		assertEquals("Mark", students[0].getName());
 	}
 
 	/**
@@ -44,7 +63,9 @@ class TestWorld3Level2 {
 	 */
 	@Test
 	void testInvalidStudentId() {
-		// TODO
+		ResponseEntity<Object> response = restTemplate.getForEntity("/api/students/1231231", Object.class);
+
+		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 
 }
