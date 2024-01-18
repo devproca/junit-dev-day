@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class EmailServer {
 
 	public void send(String emailAddress, String message) {
-		throw new RuntimeException("Email server is sick today...");
+		throw new RuntimeException("Failed to call third party service from test...");
 	}
 
 }
