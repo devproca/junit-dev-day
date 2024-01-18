@@ -13,7 +13,7 @@ import java.util.Set;
  * assertThat(object).usingRecursiveAssertion()
  *
  * Here's how to start a recursive comparison:
- * assertThat(batman).usingRecursiveComparison()
+ * assertThat(object).usingRecursiveComparison()
  *
  * Instructions:
  * Add single recursive assertion based on instructions of each test
