@@ -5,7 +5,7 @@ Clone this repo and open it up in your favorite IDE.
 
 The exercises can be found in `src/test/java/com/jimrennie/junit`
 
-The answers are in branches off of the master branch in the format `answers/worldx/levely` and for boss levels it `answers/worldx/levelboss`.
+The answers are in branches off of the master branch in the format `answers/worldx/levely` and for boss levels `answers/worldx/levelboss`.
 
 The easiest way to view the answers is to run the git command pointing at the appropriate answer branch:
 ```
