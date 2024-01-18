@@ -1,6 +1,8 @@
 package com.jimrennie.junit.world5;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -29,6 +31,15 @@ class TestWorld5Level2 {
 	@Test
 	void test3() {
 		// Passing test
+	}
+
+	public static class HakunaMatataExtension implements TestExecutionExceptionHandler {
+
+		@Override
+		public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+			System.out.println("Hakuna Matata - " + context.getDisplayName() + " - " + throwable);
+		}
+
 	}
 
 }
